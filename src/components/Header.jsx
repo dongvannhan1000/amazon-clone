@@ -6,7 +6,7 @@ import CartIcon from '../images/icons/cart-icon.png'
 
 import '../styles/Header.css';
 
-export default function Header() {
+export default function Header({cartItemCount}) {
     return (
       <div className="amazon-header">
         <div className="amazon-header-left-section">
@@ -34,7 +34,7 @@ export default function Header() {
 
           <Link className="cart-link header-link" href="checkout">
             <img className="cart-icon" src={CartIcon} />
-            <div className="cart-quantity"></div>
+            <div className="cart-quantity">{cartItemCount}</div>
             <div className="cart-text">Cart</div>
           </Link>
         </div>
