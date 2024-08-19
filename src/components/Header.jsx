@@ -6,7 +6,7 @@ import CartIcon from '../images/icons/cart-icon.png'
 
 import '../styles/Header.css';
 
-export default function Header({cartItemCount}) {
+export default function Header({cartItemCount = 0}) {
     return (
       <div className="amazon-header">
         <div className="amazon-header-left-section">
