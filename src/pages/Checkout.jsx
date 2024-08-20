@@ -8,7 +8,9 @@ function Checkout() {
   return (
     <>
       <div className="checkout-header">
-        Checkout({cartItemCount} items) 
+        <div className="header-content">
+          <div className="checkout-header-middle-section">Checkout({cartItemCount} items)</div>
+        </div>
       </div>
   
       <div className="main-checkout">
