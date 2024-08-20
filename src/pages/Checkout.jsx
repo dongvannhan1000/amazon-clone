@@ -33,7 +33,8 @@ function Checkout() {
             <div className="payment-summary">
               <PaymentSummary 
                 cart={cart}
-                cartItemCount={cartItemCount} 
+                cartItemCount={cartItemCount}
+                setCart={setCart}
               />
             </div>
           </div>

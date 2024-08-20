@@ -1,13 +1,15 @@
+import { useState } from "react";
 import { formatCurrency } from "../utils";
 import { getDeliveryOption } from "../utils";
 
-export default function PaymentSummary({cart, cartItemCount}) {
+export default function PaymentSummary({cart, cartItemCount, setCart}) {
+  const [orderPlaced, setOrderPlaced] = useState(false);
+  
   let productPriceCents = 0;
   let shippingPriceCents = 0;
   
   cart.forEach((item) => {
     productPriceCents += item.price * item.quantity * 100;
-
     const deliveryOption = getDeliveryOption(item.deliveryOptionId);
     shippingPriceCents += deliveryOption.priceCents;
   });
@@ -16,6 +18,33 @@ export default function PaymentSummary({cart, cartItemCount}) {
   const taxCents = totalBeforeTaxCents * 0.1;
   const totalCents = totalBeforeTaxCents + taxCents;
   const cartQuantity = cartItemCount;
+
+  function addOrder() {
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    const newOrder = {
+      id: Date.now(), // Unique identifier for the order
+      items: cart,
+      totalAmount: totalCents,
+      date: new Date().toISOString(),
+    };
+    orders.unshift(newOrder);
+    localStorage.setItem('orders', JSON.stringify(orders));
+    setOrderPlaced(true);
+    setCart([]); // Clear the cart after placing the order
+  }
+
+  if (orderPlaced) {
+    return (
+      <div className="checkout-header">
+          <div className="header-content">
+            <div className="checkout-header-middle-section">
+              <h2>Thank you for your order!</h2>
+              <p>Your order has been placed successfully.</p>
+            </div>
+          </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -48,7 +77,10 @@ export default function PaymentSummary({cart, cartItemCount}) {
         <div className="payment-summary-money">${formatCurrency(totalCents)}</div>
       </div>
 
-      <button className="place-order-button button-primary">
+      <button 
+        className="place-order-button button-primary"
+        onClick={addOrder}
+      >
         Place your order
       </button>
     </>
