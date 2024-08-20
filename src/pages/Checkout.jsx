@@ -1,23 +1,35 @@
 import { useOutletContext } from 'react-router-dom';
-import Product from '../components/Product';
-import '../styles/Home.css'
+import OrderSummary from '../components/OrderSummary';
+import '../styles/Checkout.css'
 
-function Home() {
-  const { products, addToCart } = useOutletContext();
+function Checkout() {
+  const { cart, setCart, removeFromCart, cartItemCount } = useOutletContext();
 
   return (
-    <div className="main">
-      <div className="products-grid">
-        {products.map((product) => (
-          <Product 
-            key={product.id} 
-            product={product} 
-            addToCart={addToCart} 
-          />
-        ))}
+    <>
+      <div className="checkout-header">
+        Checkout({cartItemCount} items) 
       </div>
-    </div>
+  
+      <div className="main-checkout">
+        <div className="page-title">Review your order</div>
+  
+        <div className="checkout-grid">
+          <div className="order-summary">
+            <OrderSummary 
+              cart={cart} 
+              setCart={setCart} 
+              removeFromCart={removeFromCart}
+            />
+          </div>
+  
+          <div className="payment-summary">
+            
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
-export default Home;
+export default Checkout;
