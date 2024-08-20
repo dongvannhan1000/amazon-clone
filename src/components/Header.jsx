@@ -1,5 +1,3 @@
-import debounce from 'lodash/debounce';
-import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import AmazonLogo from '../images/amazon-logo-white.png'
 import AmazonMobile from '../images/amazon-mobile-logo-white.png'
