@@ -1,3 +1,5 @@
+import debounce from 'lodash/debounce';
+import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import AmazonLogo from '../images/amazon-logo-white.png'
 import AmazonMobile from '../images/amazon-mobile-logo-white.png'
@@ -6,7 +8,13 @@ import CartIcon from '../images/icons/cart-icon.png'
 
 import '../styles/Header.css';
 
-export default function Header({cartItemCount = 0}) {
+export default function Header({cartItemCount = 0, searchTerm, onSearch}) {
+
+  const handleSearchChange = (e) => {
+    const term = e.target.value;
+    onSearch(term);
+  };
+
     return (
       <div className="amazon-header">
         <div className="amazon-header-left-section">
@@ -19,11 +27,19 @@ export default function Header({cartItemCount = 0}) {
         </div>
 
         <div className="amazon-header-middle-section">
-          <input className="search-bar" type="text" placeholder="Search" />
-
-          <button className="search-button">
-            <img className="search-icon" src={SearchIcon} />
-          </button>
+            <input 
+              className="search-bar" 
+              type="text" 
+              placeholder="Search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              aria-label="Search products"
+            />
+            <button 
+              className="search-button" 
+              aria-label="Submit search">
+              <img className="search-icon" src={SearchIcon} alt="Search" />
+            </button>
         </div>
 
         <div className="amazon-header-right-section">
