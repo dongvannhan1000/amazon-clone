@@ -41,10 +41,11 @@ export default function Product({ product, addToCart }) {
     return formatCurrency(product.price * 100);
   }
 
-  const createQuantityOptions = (max) => {
-    return Array.from({ length: max }, (_, i) => (
-      <option key={i + 1} value={i + 1}>{i + 1}</option>
-    ));
+  const handleQuantityChange = (e) => {
+    const value = Number(e.target.value);
+    if (value >= 1) {
+      setQuantity(value);
+    }
   };
 
   const handleAddToCart = () => {
@@ -71,15 +72,16 @@ export default function Product({ product, addToCart }) {
         </div>
       </div>
       <div className="product-price">
-        ${getPrice()}
+        ${getPrice() * quantity}
       </div>
       <div className="product-quantity-container">
-        <select 
-          value={quantity} 
-          onChange={(e) => setQuantity(Number(e.target.value))}
-        >
-          {createQuantityOptions(10)}
-        </select>
+        <input
+          value={quantity}
+          onChange={handleQuantityChange}
+          type="number"
+          min="0"
+          placeholder="Quantity"
+        />
       </div>
  
       <div className="product-spacer"></div>
