@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { formatCurrency } from "../utils";
 import { getDeliveryOption } from "../utils";
 
 export default function PaymentSummary({cart, cartItemCount, setCart}) {
-  const [orderPlaced, setOrderPlaced] = useState(false);
   
   let productPriceCents = 0;
   let shippingPriceCents = 0;
@@ -29,21 +27,7 @@ export default function PaymentSummary({cart, cartItemCount, setCart}) {
     };
     orders.unshift(newOrder);
     localStorage.setItem('orders', JSON.stringify(orders));
-    setOrderPlaced(true);
     setCart([]); // Clear the cart after placing the order
-  }
-
-  if (orderPlaced) {
-    return (
-      <div className="checkout-header">
-          <div className="header-content">
-            <div className="checkout-header-middle-section">
-              <h2>Thank you for your order!</h2>
-              <p>Your order has been placed successfully.</p>
-            </div>
-          </div>
-      </div>
-    );
   }
 
   return (

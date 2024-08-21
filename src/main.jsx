@@ -5,7 +5,7 @@ import App from './App.jsx'
 import Layout from './pages/Layout.jsx'
 import Home from './pages/Home.jsx'
 import Checkout from './pages/Checkout.jsx'
-// import Orders from './pages/Orders.jsx'
+import Orders from './pages/Orders.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <Home /> },
           { path: "checkout", element: <Checkout /> },
-          // { path: "orders", element: <Orders /> },
+          { path: "orders", element: <Orders /> },
         ],
       },
     ],
