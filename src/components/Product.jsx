@@ -66,13 +66,14 @@ export default function Product({ product, addToCart }) {
         <img 
           className="product-rating-stars" 
           src={getStarsUrl()}
+          alt="Rating stars"
         />
         <div className="product-rating-count link-primary">
           {product.rating.count}
         </div>
       </div>
       <div className="product-price">
-        ${getPrice() * quantity}
+        ${(getPrice() * quantity).toFixed(2)}
       </div>
       <div className="product-quantity-container">
         <input

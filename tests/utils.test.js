@@ -23,6 +23,7 @@ describe('formatCurrency', () => {
     expect(formatCurrency(100)).toBe('1.00');
     expect(formatCurrency(999)).toBe('9.99');
     expect(formatCurrency(1234)).toBe('12.34');
+    expect(formatCurrency(1000)).toBe('10.00');
   });
 });
 
