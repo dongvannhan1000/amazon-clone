@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 import OrderSummary from '../components/OrderSummary';
-import PaymentSummary from '../components/PaymentSumary';
+import PaymentSummary from '../components/PaymentSummary';
 import '../styles/Checkout.css'
 
 function Checkout() {

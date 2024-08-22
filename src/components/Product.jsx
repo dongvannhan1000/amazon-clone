@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { formatCurrency, extendedCustomRound} from "../utils"
-import Checkmark from '../images/icons/checkmark.png'
-import rating0 from '../images/ratings/rating-0.png';
-import rating5 from '../images/ratings/rating-5.png';
-import rating10 from '../images/ratings/rating-10.png';
-import rating15 from '../images/ratings/rating-15.png';
-import rating20 from '../images/ratings/rating-20.png';
-import rating25 from '../images/ratings/rating-25.png';
-import rating30 from '../images/ratings/rating-30.png';
-import rating35 from '../images/ratings/rating-35.png';
-import rating40 from '../images/ratings/rating-40.png';
-import rating45 from '../images/ratings/rating-45.png';
-import rating50 from '../images/ratings/rating-50.png';
+import Checkmark from '../assets/images/icons/checkmark.png'
+import rating0 from '../assets/images/ratings/rating-0.png';
+import rating5 from '../assets/images/ratings/rating-5.png';
+import rating10 from '../assets/images/ratings/rating-10.png';
+import rating15 from '../assets/images/ratings/rating-15.png';
+import rating20 from '../assets/images/ratings/rating-20.png';
+import rating25 from '../assets/images/ratings/rating-25.png';
+import rating30 from '../assets/images/ratings/rating-30.png';
+import rating35 from '../assets/images/ratings/rating-35.png';
+import rating40 from '../assets/images/ratings/rating-40.png';
+import rating45 from '../assets/images/ratings/rating-45.png';
+import rating50 from '../assets/images/ratings/rating-50.png';
 
 export default function Product({ product, addToCart }) {
 

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import AmazonLogo from '../images/amazon-logo-white.png'
-import AmazonMobile from '../images/amazon-mobile-logo-white.png'
-import SearchIcon from '../images/icons/search-icon.png'
-import CartIcon from '../images/icons/cart-icon.png'
+import AmazonLogo from '../assets/images/amazon-logo-white.png'
+import AmazonMobile from '../assets/images/amazon-mobile-logo-white.png'
+import SearchIcon from '../assets/images/icons/search-icon.png'
+import CartIcon from '../assets/images/icons/cart-icon.png'
 
 import '../styles/Header.css';
 

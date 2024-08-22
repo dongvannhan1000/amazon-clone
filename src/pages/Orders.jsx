@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { formatCurrency, calculateDeliveryDate, getDeliveryOption } from "../utils";
 import '../styles/Orders.css'
-import BuyAgain from '../images/icons/buy-again.png';
+import BuyAgain from '../assets/images/icons/buy-again.png';
 
 export default function Orders () {
 
