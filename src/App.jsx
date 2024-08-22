@@ -49,9 +49,7 @@ function App() {
     });
   };
 
-  const removeFromCart = (productId) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== productId));
-  };
+  
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -63,7 +61,6 @@ function App() {
     <Outlet context={{
       products: filteredProducts,
       addToCart,
-      removeFromCart,
       cart,
       setCart,
       cartItemCount,

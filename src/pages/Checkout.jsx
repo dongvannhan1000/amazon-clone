@@ -4,7 +4,11 @@ import PaymentSummary from '../components/PaymentSummary';
 import '../styles/Checkout.css'
 
 function Checkout() {
-  const { cart, setCart, removeFromCart, cartItemCount } = useOutletContext();
+  const { cart, setCart, cartItemCount } = useOutletContext();
+
+  const removeFromCart = (productId) => {
+    setCart(prevCart => prevCart.filter(item => item.id !== productId));
+  };
 
   return (
     <>
